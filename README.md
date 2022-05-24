@@ -21,8 +21,8 @@ Movie App use The Movie Database API
 
 ## Screenshot
 <p align="center">
-  <img src="ss/menu.png" width="270">
-  <img src="ss/lvup.png" width="270">
-  <img src="ss/shop.png" width="270">
+  <img src="ss/movie.png" width="270">
+  <img src="ss/detail.png" width="270">
+  <img src="ss/favorite.png" width="270">
 </p>
 
