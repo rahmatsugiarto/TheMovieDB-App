@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">MovieApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="movie">Movie</string>
+    <string name="tv_movies">TV Show</string>
+    <string name="favorite">Favorite</string>
+    <string name="search">Search</string>
+    <string name="trending">TRENDING</string>
+    <string name="see_all">See all</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="popular">Popular</string>
+    <string name="overview">Overview</string>
+    <string name="the_cast">The Cast</string>
+    <string name="about_film">About Film</string>
+    <string name="status">Status :</string>
+    <string name="genre">Genre :</string>
+    <string name="original_title">Original Title :</string>
+    <string name="runtime">Runtime :</string>
+    <string name="release_date">Release Date :</string>
+    <string name="production">Production :</string>
+    <string name="popularity">Popularity :</string>
+    <string name="no_data">NO DATA</string>
+    <string name="filter">Filter :</string>
+    <string name="search_filter">Search Filter</string>
+    <string name="apply">Apply</string>
+    <string name="tv">TV</string>
+    <string name="episode">Episode :</string>
+    <string name="filter_search">Filter</string>
+    <string name="search_your_movie">Search Your Movies</string>
+    <string name="search_your_tv">Search Your TV Shows</string>
+    <string name="up_coming">UP COMING</string>
+    <string name="you_have_no_favorite_movie">You have no favorite Movie</string>
+    <string name="you_have_no_favorite_tv_shows">You have no favorite TV shows</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="m">M</string>
+</resources>

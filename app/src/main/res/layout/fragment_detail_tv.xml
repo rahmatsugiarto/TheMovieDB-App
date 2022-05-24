@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="detail"
+            type="com.gato.movieapp.models.DetailTvResponse" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/detailLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dark"
+        tools:context=".ui.fragment.detail.DetailTvFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imageView_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="500dp"
+                        android:contentDescription="@string/app_name"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@tools:sample/avatars" />
+
+
+                    <View
+                        android:id="@+id/gradient_color"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:background="@drawable/gradient_overlay"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/imageView_tv" />
+
+                    <View
+                        android:id="@+id/view_year"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="16sp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@drawable/shape_bg_btn"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView_year_release"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/view_year"
+                        app:layout_constraintEnd_toEndOf="@+id/view_year"
+                        app:layout_constraintStart_toStartOf="@+id/view_year"
+                        app:layout_constraintTop_toTopOf="@+id/view_year"
+                        tools:text="2016" />
+
+                    <TextView
+                        android:id="@+id/textView_vote_avg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:text="@{String.valueOf(detail.voteAverage)}"
+                        android:textColor="@color/white"
+                        android:textSize="48sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView_star"
+                        tools:text="7.2" />
+
+                    <ImageView
+                        android:id="@+id/imageView_star"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="16dp"
+                        android:contentDescription="@string/app_name"
+                        android:src="@drawable/ic_rate"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView_vote_avg"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/textView_vote_avg"
+                        app:tint="@color/light_blue" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp">
+
+                <TextView
+                    android:id="@+id/textView_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/raleway_regular"
+                    android:maxLines="2"
+                    android:textColor="@color/white"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="The Shawshank Redemption" />
+
+                <TextView
+                    android:id="@+id/textView_overview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/raleway_regular"
+                    android:text="@string/overview"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView_title" />
+
+                <TextView
+                    android:id="@+id/textView_overview_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColor="@color/mediumGray"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView_overview"
+                    tools:text="Framed in the 1940s for the double murder of his wife and her lover, upstanding banker Andy Dufresne begins a new life at the Shawshank prison, where he puts his accounting skills to work for an amoral warden. During his long stretch in prison, Dufresne comes to be admired by the other inmates -- including an older prisoner named Red -- for his integrity and unquenchable sense of hope." />
+
+
+                <LinearLayout
+                    android:id="@+id/layout_cast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView_overview_desc">
+
+                    <TextView
+                        android:id="@+id/textView_cast"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/the_cast"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_cast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal"
+                        tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:listitem="@layout/item_row_cast" />
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layout_about"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:animateLayoutChanges="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layout_cast">
+
+                    <TextView
+                        android:id="@+id/textView_about"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_regular"
+                        android:text="@string/about_film"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView_ori_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:text="@string/original_title"
+                        android:textColor="@color/light_blue"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_about" />
+
+                    <TextView
+                        android:id="@+id/textView_ori_title_imp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:text="@{detail.originalName}"
+                        android:textColor="@color/mediumGray"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/textView_ori_title"
+                        app:layout_constraintTop_toTopOf="@id/textView_ori_title"
+                        tools:text="The Shawshank Redemption" />
+
+                    <TextView
+                        android:id="@+id/textView_genre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:text="@string/genre"
+                        android:textColor="@color/light_blue"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_ori_title_imp" />
+
+                    <TextView
+                        android:id="@+id/textView_genre_imp"
+                        setTextGenre2="@{detail}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textColor="@color/mediumGray"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/textView_ori_title_imp"
+                        app:layout_constraintTop_toTopOf="@id/textView_genre"
+                        tools:text="Action" />
+
+                    <TextView
+                        android:id="@+id/textView_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:text="@string/status"
+                        android:textColor="@color/light_blue"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_genre_imp" />
+
+                    <TextView
+                        android:id="@+id/textView_status_imp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_regular"
+                        android:text="@{detail.status}"
+                        android:textColor="@color/mediumGray"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/textView_ori_title_imp"
+                        app:layout_constraintTop_toTopOf="@id/textView_status"
+                        tools:text="Released" />
+
+                    <TextView
+                        android:id="@+id/textView_episode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:text="@string/episode"
+                        android:textColor="@color/light_blue"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_status_imp" />
+
+                    <TextView
+                        android:id="@+id/textView_episode_imp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_regular"
+                        android:text="@{String.valueOf(detail.numberOfEpisodes)}"
+                        android:textColor="@color/mediumGray"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/textView_ori_title_imp"
+                        app:layout_constraintTop_toTopOf="@id/textView_episode"
+                        tools:text="112" />
+
+                    <TextView
+                        android:id="@+id/textView_popularity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:text="@string/popularity"
+                        android:textColor="@color/light_blue"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_episode_imp" />
+
+                    <TextView
+                        android:id="@+id/textView_popularity_imp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_regular"
+                        android:text="@{String.valueOf(detail.popularity)}"
+                        android:textColor="@color/mediumGray"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/textView_ori_title_imp"
+                        app:layout_constraintTop_toTopOf="@id/textView_popularity"
+                        tools:text="61.381" />
+
+                    <TextView
+                        android:id="@+id/textView_release_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:text="@string/release_date"
+                        android:textColor="@color/light_blue"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_popularity_imp" />
+
+                    <TextView
+                        android:id="@+id/textView_release_date_imp"
+                        setTextReleaseDate2="@{detail}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textColor="@color/mediumGray"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/textView_ori_title_imp"
+                        app:layout_constraintTop_toTopOf="@id/textView_release_date"
+                        tools:text="12 Jan 2022" />
+
+                    <TextView
+                        android:id="@+id/textView_production"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:text="@string/production"
+                        android:textColor="@color/light_blue"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView_release_date_imp" />
+
+                    <TextView
+                        android:id="@+id/textView_production_imp"
+                        setTextProductionCompanies2="@{detail}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="32dp"
+                        android:fontFamily="@font/raleway_regular"
+                        android:textColor="@color/mediumGray"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/textView_ori_title_imp"
+                        app:layout_constraintTop_toTopOf="@id/textView_production"
+                        tools:text="Castle Rock Entertainment" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

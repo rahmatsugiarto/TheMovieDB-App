@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/movieFragment">
+
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="com.gato.movieapp.ui.fragment.movie.MovieFragment"
+        android:label="Movie"
+        tools:layout="@layout/fragment_movie" >
+        <action
+            android:id="@+id/action_movieFragment_to_detailFragmentMovie"
+            app:destination="@id/detailFragmentMovie" />
+        <action
+            android:id="@+id/action_movieFragment_to_seeAllMovieFragment"
+            app:destination="@id/movieDescFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tvFragment"
+        android:name="com.gato.movieapp.ui.fragment.tv.TvFragment"
+        android:label="TV"
+        tools:layout="@layout/fragment_tv" >
+        <action
+            android:id="@+id/action_tvFragment_to_detailTvFragment"
+            app:destination="@id/detailTvFragment" />
+        <action
+            android:id="@+id/action_tvFragment_to_movieDescFragment"
+            app:destination="@id/movieDescFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.gato.movieapp.ui.fragment.favorite.FavoriteFragment"
+        android:label="Favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailFragmentMovie"
+            app:destination="@id/detailFragmentMovie" />
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailTvFragment"
+            app:destination="@id/detailTvFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.gato.movieapp.ui.fragment.search.SearchFragment"
+        android:label=""
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_detailFragmentMovie"
+            app:destination="@id/detailFragmentMovie" />
+        <action
+            android:id="@+id/action_searchFragment_to_searchBottomSheet"
+            app:destination="@id/searchBottomSheet" />
+        <action
+            android:id="@+id/action_searchFragment_to_detailTvFragment"
+            app:destination="@id/detailTvFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragmentMovie"
+        android:name="com.gato.movieapp.ui.fragment.detail.DetailMovieFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_detail_movie" >
+        <action
+            android:id="@+id/action_detailFragmentMovie_to_movieFragment"
+            app:destination="@id/movieFragment" />
+        <argument
+            android:name="result"
+            app:argType="com.gato.movieapp.models.MovieResult" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDescFragment"
+        android:name="com.gato.movieapp.ui.fragment.moviedesc.MovieDescFragment"
+        android:label="See All"
+        tools:layout="@layout/fragment_movie_desc" >
+        <action
+            android:id="@+id/action_seeAllMovieFragment_to_detailFragmentMovie"
+            app:destination="@id/detailFragmentMovie" />
+        <argument
+            android:name="type"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_movieDescFragment_to_detailTvFragment"
+            app:destination="@id/detailTvFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/searchBottomSheet"
+        android:name="com.gato.movieapp.ui.fragment.search.SearchBottomSheet"
+        android:label="fragment_search_bottom_sheet"
+        tools:layout="@layout/fragment_search_bottom_sheet" >
+        <action
+            android:id="@+id/action_searchBottomSheet_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/detailTvFragment"
+        android:name="com.gato.movieapp.ui.fragment.detail.DetailTvFragment"
+        android:label="Detail"
+        tools:layout="@layout/fragment_detail_tv" >
+        <argument
+            android:name="result"
+            app:argType="com.gato.movieapp.models.TvResult" />
+    </fragment>
+</navigation>
